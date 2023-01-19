@@ -30,17 +30,21 @@
         <li>LinkedIn: <a href="http://linkedin.com/in/timi.adenuga">Timi Adenuga</a></li>
       </ul>
     </div>
-    <form>
+    <form action="https://formspree.io/f/xlekeqej" method="POST">
       <p class="directive">
         ...Or you can drop a quick message below
       </p>
       <div class="form-group">
         <label for="name">Your Name</label>
-        <input type="text" id="name" />
+        <input type="text" id="name" name="Name" />
+      </div>
+      <div class="form-group">
+        <label for="email">Your email</label>
+        <input type="email" id="email" name="Email" />
       </div>
       <div class="form-group">
         <label for="message">Your Message</label>
-        <textarea id="message"></textarea>
+        <textarea id="message" name="message"></textarea>
       </div>
       <button>Submit</button>
 
