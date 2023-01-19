@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 html {
@@ -10,29 +12,41 @@ body {
   font-size: 1.6rem;
   background: hsl(196, 87%, 6%);
   color: hsl(0, 0%, 97%);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+:where(h1, h2, h3, h5, h6) {
+  font-family: "Lexend", sans-serif;
+  font-weight: 300;
+}
 
 h1 {
   font-size: clamp(3rem, 5vw, 5rem);
 }
-p {
+:where(p) {
   line-height: 1.5;
   font-size: clamp(1.6rem, 2vw, 2.1rem);
 }
 
-
-
-
-
 .accent {
   color: hsl(196, 98%, 51%);
 }
+.dark-accent {
+  color: hsl(0, 77%, 41%);
+}
 
+.image-box {
+  overflow: hidden;
+}
 .image-box img {
   max-width: 100%;
-  height: auto;
+  height: 100%;
+  transition: transform 0.2s ease-in;
+  display: block;
+}
+.image-box:hover img {
+  transform: scale(1.1);
 }
 
 form {
@@ -54,7 +68,7 @@ form .form-group textarea {
 }
 input,
 textarea {
-  padding: .5em;
+  padding: 0.5em;
   font-size: 1.6rem;
 }
 
@@ -67,7 +81,6 @@ a:hover {
   text-decoration: underline;
 }
 
-
 /* NavBar */
 nav {
   position: absolute;
@@ -78,12 +91,24 @@ nav {
 }
 nav a {
   text-decoration: none;
-  padding: .5em;
+  padding: 0.5em;
   color: rgb(5, 18, 42);
   background-color: rgb(17, 156, 226);
-  border-radius: .4em;
+  border-radius: 0.4em;
 }
 nav a:is(:focus, :hover) {
   color: rgb(151, 220, 255);
   background-color: rgb(16, 112, 160);
+}
+
+@keyframes horizon-bounce {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(15px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }

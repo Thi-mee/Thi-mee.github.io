@@ -1,4 +1,5 @@
 @import "./global.css";
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap");
 
 /* header */
 header {
@@ -29,7 +30,7 @@ header .image-box img {
 }
 @media screen and (width > 750px) {
   header {
-    padding-top: 0;
+    padding-block: 0;
     flex-direction: row;
     text-align: left;
     align-items: center;
@@ -37,6 +38,9 @@ header .image-box img {
     gap: 5em;
     max-width: none;
     min-height: 100vh;
+  }
+  header.container {
+    max-width: 1200px;
   }
   header > * {
     flex: 1;
@@ -58,13 +62,13 @@ header .social-icons {
   gap: 2em;
 }
 header .social-icons a {
-  filter:drop-shadow(2px 2px 5px rgba(97, 97, 97, 0.65));
+  filter: drop-shadow(2px 2px 5px rgba(97, 97, 97, 0.65));
 }
 header .social-icons a img {
-  transition: transform .2s ease-in;
+  transition: transform 0.2s ease-in;
 }
-header .social-icons a:hover img{
-  filter: invert(.2);
+header .social-icons a:hover img {
+  filter: invert(0.2);
   transform: translateY(-10px);
 }
 .container {
@@ -74,7 +78,11 @@ header .social-icons a:hover img{
   padding-block: 3em;
 }
 .container.about-me {
-
+  text-align: center;
+  font-family: "Lexend", sans-serif;
+  color: rgba(160, 181, 208, 0.884);
+  font-size: 2.5rem;
+  padding-block: 0 2em;
 }
 .container.tech-stack {
   padding-block: 3em;
@@ -88,16 +96,122 @@ header .social-icons a:hover img{
 }
 .container.tech-stack li {
   background-color: #f2bfbf;
-  padding: 0.5em 1em;
+  padding: 0.7em 1.2em;
   border-radius: 0.5em;
   font-size: 1.6rem;
   font-weight: 600;
   color: #333;
 }
-
-
-.projects {
+.container.tech-stack li:hover {
+  transform: scale(1.05);
+  background-color: #dba0a0;
+}
+.container.portfolio-projects .portfolio-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #ddd;
+  color: #111;
+}
+.portfolio-projects .tab-box {
+  display: flex;
+  margin-bottom: 1em;
+  background-color: rgba(59, 58, 58, 0.801);
+}
+.portfolio-projects .tab {
+  border: 0;
+  padding: 1.5em 2.5em;
+  font-size: 1.4rem;
+  font-weight: 600;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+.portfolio-projects .tab:hover {
+  background-color: rgba(255, 255, 255, 0.658);
+  color: #222;
+}
+.portfolio-projects .tab.active {
+  background-color: #ddd;
+  color: #222;
+}
+.container.portfolio-projects .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, min-max(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "one one one";
   gap: 1em;
+  margin-bottom: 2em;
+  padding: 2em 2em 1em;
+}
+.project {
+  flex: 1 1 100%;
+}
+.project * {
+  margin: 0;
+  padding: 0;
+}
+.project a {
+  color: rgb(16, 92, 199);
+  font-weight: bold;
+}
+.project.one {
+  display: flex;
+  gap: 2em;
+  grid-area: one;
+}
+.project.one > * {
+  flex: 1;
+}
+.project.one .image-box {
+  height: 100%;
+}
+.project h3 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5em;
+}
+.project:hover h3 {
+  color: rgb(45, 111, 204);
+}
+.project .project-info {
+  margin-block: 1em;
+}
+.project .project-info p {
+  font-size: clamp(1.6rem, 2vw, 1.9rem);
+  color: #333;
+  margin-block: 0;
+}
+.project .project-stack {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.project .project-stack ul {
+  display: flex;
+  gap: 1em;
+  padding: 0;
+  list-style: none;
+}
+.project .project-stack li {
+  background-color: #f2bfbf;
+  padding: 0.3em 0.5em;
+  border-radius: 0.5em;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #333;
+}
+.project a {
+  color: #333;
+  text-decoration: none;
+}
+.project:hover a {
+  display: flex;
+  color: rgb(45, 111, 204);
+}
+.project:hover a span {
+  animation: horizon-bounce 1s ease-in-out infinite;
+}
+.project .proj-link {
+  margin-top: 1em;
+  display: block;
 }
