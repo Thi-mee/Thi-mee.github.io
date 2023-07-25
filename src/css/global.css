@@ -1,37 +1,100 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap");
+
+/* ------------------------------ *\
+        GLOBAL
+\* ------------------------------ */
 html {
   scroll-behavior: smooth;
   font-size: 62.5%;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
+
 body {
   margin: 0;
-  font-size: 1.6rem;
-  background: hsl(196, 87%, 6%);
+  min-width: 320px;
+  min-height: 100vh;
+  background: hsl(213, 86%, 8%);
   color: hsl(0, 0%, 97%);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  font-size: clamp(1.5rem, 2vw, 2.1rem);
+  font-weight: 400;
+}
+
+:where(*, *::before, *::after) {
+  /* margin: 0;
+  padding: 0; */
+  box-sizing: border-box;
+}
+
+:where(ul, ol) {
+  list-style: none;
+}
+
+:where(a, button, input) {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+:where(button) {
+  background: transparent;
+}
+
+:where(img) {
+  display: block;
+  max-width: 100%;
 }
 
 :where(h1, h2, h3, h5, h6) {
   font-family: "Lexend", sans-serif;
   font-weight: 300;
+  line-height: 1.2;
 }
 
-h1 {
+:where(h1) {
   font-size: clamp(3rem, 5vw, 5rem);
+  margin-top: 0;
 }
-:where(p) {
-  line-height: 1.5;
-  font-size: clamp(1.6rem, 2vw, 2.1rem);
+
+:where(a) {
+  text-decoration: none;
+  color: aquamarine;
+}
+
+:where(a:hover, a:focus) {
+  color: rgb(17, 156, 226);
+}
+
+.container {
+  width: 90%;
+  max-width: 700px;
+  margin-inline: auto;
+  padding-block: 1.5em;
+}
+@media screen and (min-width: 750px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3em 2rem;
+  }
+}
+
+input,
+textarea {
+  padding: 0.5em;
+  font-size: 1.6rem;
 }
 
 .accent {
   color: hsl(196, 98%, 51%);
 }
+
 .dark-accent {
   color: hsl(0, 77%, 41%);
 }
@@ -39,68 +102,19 @@ h1 {
 .image-box {
   overflow: hidden;
 }
+
 .image-box img {
-  max-width: 100%;
   height: 100%;
-  transition: transform 0.2s ease-in;
-  display: block;
-}
-.image-box:hover img {
-  transform: scale(1.1);
 }
 
-form {
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-form .form-group {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1em;
-}
-form .form-group input,
-form .form-group textarea {
-  flex: 1;
-  justify-self: flex-end;
-}
-input,
-textarea {
-  padding: 0.5em;
-  font-size: 1.6rem;
+section {
+    padding-block: 2em;
 }
 
-a {
-  color: aquamarine;
-  text-decoration: none;
-  text-underline-offset: 4px;
-}
-a:hover {
-  text-decoration: underline;
-}
 
-/* NavBar */
-nav {
-  position: absolute;
-  top: 1em;
-  right: 2em;
-  display: flex;
-  gap: 1em;
-}
-nav a {
-  text-decoration: none;
-  padding: 0.5em;
-  color: rgb(5, 18, 42);
-  background-color: rgb(17, 156, 226);
-  border-radius: 0.4em;
-}
-nav a:is(:focus, :hover) {
-  color: rgb(151, 220, 255);
-  background-color: rgb(16, 112, 160);
-}
-
+/* ------------------------------ *\
+        ANIMATIONS
+\* ------------------------------ */
 @keyframes horizon-bounce {
   0% {
     transform: translateX(0px);
@@ -110,5 +124,14 @@ nav a:is(:focus, :hover) {
   }
   100% {
     transform: translateX(0px);
+  }
+}
+
+@keyframes rotate {
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
